@@ -13,20 +13,20 @@ var data = new WeakMap();
 
 // delete this node's `data`
 // returns true if the node was deleted.
-var deleteNode = function() {
+var deleteNode = function(node) {
 	var nodeDeleted = false;
-	if (data.has(this)) {
+	if (data.has(node)) {
 		nodeDeleted = true;
-		data.delete(this);
+		data.delete(node);
 	}
 	return nodeDeleted;
 };
 
-var setData = function(name, value) {
-	var store = data.get(this);
+var setData = function(node, name, value) {
+	var store = data.get(node);
 	if (store === undefined) {
 		store = {};
-		data.set(this, store);
+		data.set(node, store);
 	}
 	if (name !== undefined) {
 		store[name] = value;
@@ -41,20 +41,20 @@ var setData = function(name, value) {
 var domData = {
 	_data: data,
 
-	get: function(key) {
-		var store = data.get(this);
+	get: function(node, key) {
+		var store = data.get(node);
 		return key === undefined ? store : store && store[key];
 	},
 
 	set: setData,
 
-	clean: function(prop) {
-		var itemData = data.get(this);
+	clean: function(node, prop) {
+		var itemData = data.get(node);
 		if (itemData && itemData[prop]) {
 			delete itemData[prop];
 		}
 		if (isEmptyObject(itemData)) {
-			deleteNode.call(this);
+			deleteNode(node);
 		}
 	},
 

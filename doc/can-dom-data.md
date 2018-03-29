@@ -17,15 +17,15 @@ import domData from "can-dom-data";
 const element = document.createElement("p");
 document.body.appendChild(element);
 
-domData.set.call(element, "metadata", {
+domData.set(element, "metadata", {
   hello: "world"
 });
 
-let metadata = domData.get.call(element, "metadata");
+let metadata = domData.get(element, "metadata");
 // metadata is {hello: "world"}
 
 document.body.removeChild(element);
 
-metadata = domData.get.call(element, "metadata");
+metadata = domData.get(element, "metadata");
 // metadata === undefined because the element was removed from the DOM
 ```

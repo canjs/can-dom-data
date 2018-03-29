@@ -4,7 +4,8 @@
 Set data to be associated with a DOM node using the specified `key`.
 If data already exists for this key, it will be overwritten.
 
-@signature `domData.set.call(element, key, value)`
+@signature `domData.set(node, key, value)`
+@param {Node} node The element.
 @param  {String} key The property under which to store the value.
 @param {*} value The value to store for the key.
 
@@ -18,7 +19,7 @@ import domData from "can-dom-data";
 const element = document.createElement("p");
 document.body.appendChild(element);
 
-domData.set.call(element, "metadata", {
+domData.set(element, "metadata", {
   hello: "world"
 });
 ```

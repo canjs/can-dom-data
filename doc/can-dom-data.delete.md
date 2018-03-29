@@ -3,7 +3,8 @@
 
 Remove all data for an element previously added by [can-dom-data.set set].
 
-@signature `domData.delete.call(element)`
+@signature `domData.delete(node)`
+@param {Node} node The element.
 
 @body
 
@@ -15,15 +16,15 @@ import domData from "can-dom-data";
 const element = document.createElement("p");
 document.body.appendChild(element);
 
-domData.set.call(element, "metadata", {
+domData.set(element, "metadata", {
   hello: "world"
 });
 
-let metadata = domData.get.call(element, "metadata");
+let metadata = domData.get(element, "metadata");
 // metadata is {hello: "world"}
 
-domData.delete.call(element, "metadata");
+domData.delete(element, "metadata");
 
-metadata = domData.get.call(element, "metadata");
+metadata = domData.get(element, "metadata");
 // metadata === undefined after clean() was called
 ```
