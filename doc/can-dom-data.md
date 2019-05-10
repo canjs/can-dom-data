@@ -1,6 +1,7 @@
 @module {{}} can-dom-data
 @parent can-dom-utilities
 @collection can-infrastructure
+@package ../package.json
 @description Associate key/value pair data with a DOM node in a memory-safe way.
 
 @type {Object} The `can-dom-data` package exports an object with
