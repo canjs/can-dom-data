@@ -38,7 +38,6 @@
     ]
   },
   "dependencies": {
-    "can-dom-mutate": "^1.0.0",
     "can-namespace": "1.0.0"
   },
   "devDependencies": {
